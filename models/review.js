@@ -1,21 +1,25 @@
-const { DataTypes } = require('sequelize');
+const db = require('../connection');
+const { Sequelize } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
-    const Review  = sequelize.define('review', {
-        idreview: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
-        },
-        date: {
-            type: DataTypes.DATE
-        },
-        stars: {
-            type: DataTypes.INTEGER
-        },
-        text: {
-            type: DataTypes.STRING
-        }
-    })
-    
-    return Review
-}
+const Review = db.define('review', {
+    idreview: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
+    date: {
+        type: Sequelize.DATE
+    },
+    stars: {
+        type: Sequelize.INTEGER
+    },
+    text: {
+        type: Sequelize.STRING
+    }
+},{
+    tableName: 'reviews'
+})
+
+// Sincronitza la bdd
+db.sync();
+
+module.exports = Review;

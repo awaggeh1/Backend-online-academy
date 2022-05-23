@@ -1,29 +1,33 @@
-const { DataTypes } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
-    const Instructor  = sequelize.define('instructor', {
-        idinstructor: {
-            type: DataTypes.INTEGER,
-            primaryKey: true
-        },
-        first_name: {
-            type: DataTypes.STRING
-        },
-        last_name: {
-            type: DataTypes.STRING
-        },
-        speciality: {
-            type: DataTypes.STRING
-        },
-        about_me: {
-            type: DataTypes.STRING
-        },
-        email: {
-            type: DataTypes.STRING
-        },
-        img_uri: {
-            type: DataTypes.STRING
-        }
-    })
-    return Instructor
-}
+const db = require('../connection');
+const { Sequelize } = require('sequelize');
+
+const Instructor = db.define('instructor', {
+        
+    idinstructor: {
+        type: Sequelize.INTEGER,
+        primaryKey: true
+    },
+    first_name: {
+        type: Sequelize.STRING
+    },
+    last_name: {
+        type: Sequelize.STRING
+    },
+    speciality: {
+        type: Sequelize.STRING
+    },
+    about_me: {
+        type: Sequelize.STRING
+    },
+    email: {
+        type: Sequelize.STRING
+    },
+    img_uri: {
+        type: Sequelize.STRING
+    }
+},{
+    tableName: 'instructors'
+})
+
+module.exports = Instructor;

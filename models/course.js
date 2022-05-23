@@ -1,32 +1,57 @@
-const { DataTypes } = require('sequelize');
+const db = require('../connection');
+const { Sequelize } = require('sequelize');
+const Category = require ('./category');
+const Review = require ('./review');
+const Instructor = require ('./instructor');
 
-module.exports = (sequelize, DataTypes) => {
-    const Course  = sequelize.define('course', {
+const Course = db.define('course', {
         idcourse: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true
         },
         title: {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
         },
         description: {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
+        },
+        level: {
+            type: Sequelize.STRING
         },
         video_uri: {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
         },
         img_uri: {
-            type: DataTypes.STRING
+            type: Sequelize.STRING
         },
         finished: {
-            type: DataTypes.BOOLEAN
+            type: Sequelize.BOOLEAN
         },
         duration: {
-            type: DataTypes.TIME
+            type: Sequelize.TIME
         },
         release: {
-            type: DataTypes.DATE
+            type: Sequelize.DATE
         }
-    })
-    return Course
-}
+},{
+    tableName: 'courses'
+})
+// Sinconitza la bdd
+db.sync();
+// db.sync({force: true});
+
+/** Relation Course-Category **/
+Course.hasMany(Category)
+Category.belongsTo(Course);
+
+
+/** Relation Course-Review **/
+Course.hasMany(Review)
+Review.belongsTo(Course);
+
+/** Relation Course-Instructor **/
+Instructor.hasMany(Course)
+Course.belongsTo(Instructor);
+
+
+module.exports = Course;
