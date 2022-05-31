@@ -1,9 +1,10 @@
-// const awsServerlessExpress = require('aws-serverless-express');
-// const app = require('./app');
+var express = require('express');
+const { route } = require('./app');
+var router = express.Router();
 
-// const server = awsServerlessExpress.createServer(app);
+// GET HOME PAGE
+router.get('/', function(req, res, next){
+    res.send('index', {title: 'Express'});
+});
 
-// exports.handler = (event, context) => {
-//   console.log(`EVENT: ${JSON.stringify(event)}`);
-//   return awsServerlessExpress.proxy(server, event, context, 'PROMISE').promise;
-// };
+module.exports = router;

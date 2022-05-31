@@ -41,9 +41,8 @@ db.sync();
 // db.sync({force: true});
 
 /** Relation Course-Category **/
-Course.hasMany(Category)
-Category.belongsTo(Course);
-
+Category.hasMany(Course)
+Course.belongsTo(Category);
 
 /** Relation Course-Review **/
 Course.hasMany(Review)
@@ -52,6 +51,5 @@ Review.belongsTo(Course);
 /** Relation Course-Instructor **/
 Instructor.hasMany(Course)
 Course.belongsTo(Instructor);
-
 
 module.exports = Course;

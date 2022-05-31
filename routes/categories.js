@@ -10,4 +10,18 @@ router.get('/', (_req, res) =>
     .catch(() => res.sendStatus(500))
 )
 
+/** GET CATEGORY BY ID**/
+
+router.get('/:idcategory', (req, res) =>
+    Category.findOne({
+        where: {
+            idcategory: req.params.idcategory
+        }
+    })
+    .then(category =>{
+        res.json(category)
+    })
+    .catch(error => console.log(error))
+)
+
 module.exports = router;

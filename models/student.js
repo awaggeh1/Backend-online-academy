@@ -29,8 +29,6 @@ db.sync();
 Student.hasMany(Review)
 Review.belongsTo(Student);
 
-
-
 /** Relation Student-Course **/
 Student.belongsToMany(Course, {
     through: StudentHasCourse,
@@ -42,7 +40,5 @@ Course.belongsToMany(Student, {
     foreingKey: 'courseIdcourse',
     as: 'StudentCourse'
 })
-
-
 
 module.exports = Student;
