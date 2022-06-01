@@ -25,4 +25,18 @@ router.get('/:idcourse', (req, res) =>
     .catch(() => res.sendStatus(500))
 )
 
+/** GET NUMBER OF COURSES THAT BELONG TO A TEACHER**/
+router.get('/instructor/:idinstructor', (req, res) =>
+    Course.count({
+        where: {
+            instructorIdinstructor: req.params.idinstructor
+        }
+    })
+    .then(courses => 
+    {
+        res.json(courses)
+    })
+    .catch(() => res.sendStatus(500))
+)
+
 module.exports = router;
