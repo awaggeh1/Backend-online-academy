@@ -39,4 +39,18 @@ router.get('/instructor/:idinstructor', (req, res) =>
     .catch(() => res.sendStatus(500))
 )
 
+/** GET ALL COURSES THAT BELONG TO A TEACHER**/
+router.get('/instructors/:idinstructor', (req, res) =>
+    Course.findAll({
+        where: {
+            instructorIdinstructor: req.params.idinstructor
+        }
+    })
+    .then(courses => 
+    {
+        res.json(courses)
+    })
+    .catch(() => res.sendStatus(500))
+)
+
 module.exports = router;

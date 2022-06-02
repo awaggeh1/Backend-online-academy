@@ -31,4 +31,21 @@ router.get('/course/:idcourse', (req, res) =>
     .catch(() => res.sendStatus(500))
 )
 
+/** GET REVIEW BY INSTRUCTOR ID **/
+router.get('/course/:idcourse', (req, res) =>
+    Review.findAll({
+        where: {
+            courseIdcourse: req.params.idcourse
+        },
+        include: [
+            {
+                model: Student
+            }
+        ]
+    })
+    .then(review => res.json(review))
+    .catch(() => res.sendStatus(500))
+)
+
+
 module.exports = router;

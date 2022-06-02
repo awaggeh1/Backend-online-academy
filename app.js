@@ -17,6 +17,7 @@ app.use(cors())
 // Importacion rutas 
 var categoryRouter = require('./routes/categories');
 var courseRouter = require('./routes/courses');
+var commentRouter = require('./routes/comments');
 var reviewRouter = require('./routes/reviews');
 var instructorRouter = require('./routes/instructors');
 var studentRouter = require('./routes/students');
@@ -24,6 +25,7 @@ var studentRouter = require('./routes/students');
 // Definicion rutas
 app.use('/categories', categoryRouter);
 app.use('/courses', courseRouter);
+app.use('/comments', commentRouter);
 app.use('/reviews', reviewRouter);
 app.use('/instructors', instructorRouter);
 app.use('/students', studentRouter);
