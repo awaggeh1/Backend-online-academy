@@ -21,6 +21,7 @@ var commentRouter = require('./routes/comments');
 var reviewRouter = require('./routes/reviews');
 var instructorRouter = require('./routes/instructors');
 var studentRouter = require('./routes/students');
+var studentHasCourseRoute = require('./routes/studentsHasCourse');
 
 // Definicion rutas
 app.use('/categories', categoryRouter);
@@ -29,6 +30,7 @@ app.use('/comments', commentRouter);
 app.use('/reviews', reviewRouter);
 app.use('/instructors', instructorRouter);
 app.use('/students', studentRouter);
+app.use('/studenthascourse', studentHasCourseRoute);
 
 // Permite los cors
 app.use(function(req, res, next){
