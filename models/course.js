@@ -7,7 +7,8 @@ const Instructor = require ('./instructor');
 const Course = db.define('course', {
         idcourse: {
             type: Sequelize.INTEGER,
-            primaryKey: true
+            primaryKey: true,
+            autoIncrement: true
         },
         title: {
             type: Sequelize.STRING

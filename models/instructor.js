@@ -6,7 +6,8 @@ const Instructor = db.define('instructor', {
         
     idinstructor: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     first_name: {
         type: Sequelize.STRING

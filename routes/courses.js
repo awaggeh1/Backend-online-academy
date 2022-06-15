@@ -3,6 +3,25 @@ const router = express.Router();
 const Course = require('../models/course');
 const Instructor = require('../models/instructor');
 
+
+/** CREATE A NEW REVIEW **/
+
+router.post('/', (req, res) => {
+    Course.create({
+        // idreview: req.body.idreview,
+        title: req.body.title,
+        description: req.body.description,
+        level: req.body.level,
+        video_uri: req.body.video_uri,
+        duration: req.body.duration,
+        release: req.body.release,
+        categoryIdcategory: req.body.categoryIdcategory,
+        instructorIdinstructor: req.body.instructorIdinstructor
+    })
+    .then(course => res.send(course))
+    .catch(() => res.sendStatus(500))
+})
+
 /** GET ALL Courses **/
 
 router.get('/', (_req, res) =>

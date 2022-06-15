@@ -4,7 +4,8 @@ const { Sequelize } = require('sequelize');
 const Review = db.define('review', {
     idreview: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     date: {
         type: Sequelize.DATE

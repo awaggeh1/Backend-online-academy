@@ -6,7 +6,8 @@ const Instructor = require ('./instructor');
 const Comment = db.define('comment', {
     idcomment: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     text: {
         type: Sequelize.STRING

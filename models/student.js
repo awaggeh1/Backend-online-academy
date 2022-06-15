@@ -7,7 +7,8 @@ const StudentHasCourse = require('./studentHasCourse');
 const Student = db.define('student', {
     idstudent: {
         type: Sequelize.INTEGER,
-        primaryKey: true
+        primaryKey: true,
+        autoIncrement: true
     },
     first_name: {
         type: Sequelize.STRING
@@ -16,6 +17,9 @@ const Student = db.define('student', {
         type: Sequelize.STRING
     },
     img_uri: {
+        type: Sequelize.STRING
+    },
+    user_id: {
         type: Sequelize.STRING
     }
 },{
